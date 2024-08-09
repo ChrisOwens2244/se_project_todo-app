@@ -8,7 +8,7 @@ The user can click the add task button to open a modal with a form that asks for
 
 ## Technology
 
-For this project, seperate Javascript files were made for a Todo class, a FormValidator class, and the constant objects. The classes and objects where then exported from their respective files and imported into the index.js file to be called upon at an appropiate time. This was done not only to help clean up the index.js file by keeping long chucks of code in a sepreate file, but also have so that index.html only needs to call index.js a module instead of having to call mulitiple Javascript files. The index.js file also imports the uuid code from an external source inorder to generate a unique id for each todo task.
+For this project, seperate Javascript files were made for a Todo class, a FormValidator class, a Section class, a TodoCounter class, a Popup class, a PopupWithForm class, and the constant objects. The classes and objects where then exported from their respective files and imported into the index.js file to be called upon at an appropiate time. This was done not only to help clean up the index.js file by keeping long chucks of code in a sepreate file, but also have so that index.html only needs to call index.js a module instead of having to call mulitiple Javascript files. The index.js file also imports the uuid code from an external source inorder to generate a unique id for each todo task. The PopupWithForm class is a child of the Popup class, which will allow the PopupWithForm class to use their parents methods and variables with out rewriting them, while also having unique methods and variables that Popup class does not need.
 
 ## Deployment
 

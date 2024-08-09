@@ -10,6 +10,9 @@ class Todo {
     todoCheckboxEl.checked = this._data.completed;
     todoCheckboxEl.id = `todo-${this._data.id}`;
     todoLabel.setAttribute("for", `todo-${this._data.id}`);
+    // todoCheckboxEl.addEventListener("click", () => {
+    //   todoCounter.updateCompleted(this._data.completed);
+    // });
   }
 
   _setEventListeners() {
