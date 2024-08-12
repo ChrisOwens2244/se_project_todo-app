@@ -1,32 +1,37 @@
+import todoCounter from "../pages/index.js";
 class Todo {
   constructor(data, selector) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
+    this._todoElement = this._templateElement.content
+      .querySelector(".todo")
+      .cloneNode(true);
+    this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
+    this._todoLabel = this._todoElement.querySelector(".todo__label");
+    this._todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
   }
 
   _generateCheckboxEl() {
-    const todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
-    const todoLabel = this._todoElement.querySelector(".todo__label");
-    todoCheckboxEl.checked = this._data.completed;
-    todoCheckboxEl.id = `todo-${this._data.id}`;
-    todoLabel.setAttribute("for", `todo-${this._data.id}`);
-    // todoCheckboxEl.addEventListener("click", () => {
-    //   todoCounter.updateCompleted(this._data.completed);
-    // });
+    this._todoCheckboxEl.checked = this._data.completed;
+    this._todoCheckboxEl.id = `todo-${this._data.id}`;
+    this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
+    this._todoCheckboxEl.addEventListener("click", () => {
+      todoCounter.updateCompleted(this._todoCheckboxEl.checked);
+    });
   }
 
   _setEventListeners() {
     this._generateCheckboxEl();
-    const todoDeleteBtn = this._todoElement.querySelector(".todo__delete-btn");
-    todoDeleteBtn.addEventListener("click", () => {
+    this._todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
+      todoCounter.updateTotal(false);
+      if (this._todoCheckboxEl.checked) {
+        todoCounter.updateCompleted(false);
+      }
     });
   }
 
   getView() {
-    this._todoElement = this._templateElement.content
-      .querySelector(".todo")
-      .cloneNode(true);
     const todoNameEl = this._todoElement.querySelector(".todo__name");
     const todoDate = this._todoElement.querySelector(".todo__date");
 
