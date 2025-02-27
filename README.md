@@ -16,6 +16,6 @@ The ability to save and premenetly delete tasks, as well as a user system to hel
 
 ## Deployment
 
-This project is deployed on GitHub Pages:
+This project is deployed on GitHub Pages and can be run by going to the link below:
 
 -https://chrisowens2244.github.io/se_project_todo-app/
